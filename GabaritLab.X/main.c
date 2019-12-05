@@ -55,6 +55,7 @@ void main(void)
 {
     char x = 1;
     char y = 1;
+    int nbMines = 4;
     
     initialisation();
     lcd_init();//initialisation de l'affichage LCD
@@ -63,17 +64,25 @@ void main(void)
     lcd_curseurHome();//met le curseur à zéro
     
     initTabVue();
-    rempliMines(15);
+    rempliMines(nbMines);
     metToucheCombien();
     afficheTabVue();
     
     while(1) //boucle principale
     {
         deplace(&x, &y);
-        __delay_ms(100);
         if(PORTBbits.RB1 == 0){
-            demine(x, y);
+            if(!demine(x, y) || gagne(&nbMines)){
+                afficheTabMine();
+                while(!PORTBbits.RB1 == 0);
+                initTabVue();
+                rempliMines(nbMines);
+                metToucheCombien();
+                afficheTabVue();
+                lcd_gotoXY(x, y);
+            }
         }
+        __delay_ms(100);
     }
 }
 
@@ -289,6 +298,7 @@ bool gagne(int* pMines){
         }
     }
     if(ttl == (*pMines)){
+        (*pMines)++;
         return true;
     }
     return false;

@@ -4967,6 +4967,7 @@ void main(void)
 {
 char x = 1;
 char y = 1;
+int nbMines = 4;
 
 initialisation();
 lcd_init();
@@ -4975,17 +4976,25 @@ lcd_effaceAffichage();
 lcd_curseurHome();
 
 initTabVue();
-rempliMines(15);
+rempliMines(nbMines);
 metToucheCombien();
 afficheTabVue();
 
 while(1)
 {
 deplace(&x, &y);
-_delay((unsigned long)((100)*(1000000/4000.0)));
 if(PORTBbits.RB1 == 0){
-demine(x, y);
+if(!demine(x, y) || gagne(&nbMines)){
+afficheTabMine();
+while(!PORTBbits.RB1 == 0);
+initTabVue();
+rempliMines(nbMines);
+metToucheCombien();
+afficheTabVue();
+lcd_gotoXY(x, y);
 }
+}
+_delay((unsigned long)((100)*(1000000/4000.0)));
 }
 }
 
@@ -5005,7 +5014,7 @@ lcd_putMessage(m_tabMines[i]);
 }
 }
 
-# 103
+# 112
 void initTabVue(void){
 for(int i = 0; i<4; i++){
 for(int j = 0; j<20; j++){
@@ -5015,7 +5024,7 @@ m_tabVue[i][20] = '\0';
 }
 }
 
-# 119
+# 128
 void rempliMines(int nb){
 char col = 0;
 char ligne = 0;
@@ -5035,7 +5044,7 @@ m_tabMines[ligne][col] = 3;
 }
 }
 
-# 147
+# 156
 void metToucheCombien(void){
 for(int i = 0; i<20; i++){
 for(int j = 0; j<4; j++){
@@ -5046,7 +5055,7 @@ m_tabMines[j][i] = calculToucheCombien(j, i);
 }
 }
 
-# 162
+# 171
 char calculToucheCombien(int ligne, int colonne){
 int x = 0;
 int y = 0;
@@ -5071,7 +5080,7 @@ return 32;
 return total+48;
 }
 
-# 192
+# 201
 void deplace(char* px, char* py){
 int aX = getAnalog(7);
 int aY = getAnalog(6);
@@ -5106,7 +5115,7 @@ lcd_gotoXY((*px), (*py));
 
 }
 
-# 234
+# 243
 bool demine(char x, char y){
 
 while(PORTBbits.RB1 == 0);
@@ -5128,7 +5137,7 @@ lcd_gotoXY(x+1, y+1);
 return 1;
 }
 
-# 261
+# 270
 void enleveTuilesAutour(char x, char y){
 
 char colonne = 0;
@@ -5143,12 +5152,24 @@ m_tabVue[ligne][colonne] = m_tabMines[ligne][colonne];
 }
 }
 
-# 282
+# 291
 bool gagne(int* pMines){
-
+char ttl = 0;
+for(int i = 0; i<4; i++){
+for(int j = 0; j<20; j++){
+if(m_tabVue[i][j] == 2){
+ttl++;
+}
+}
+}
+if(ttl == (*pMines)){
+(*pMines)++;
+return 1;
+}
+return 0;
 }
 
-# 291
+# 312
 char getAnalog(char canal)
 {
 ADCON0bits.CHS = canal;
@@ -5159,7 +5180,7 @@ while (ADCON0bits.GO_DONE == 1)
 return ADRESH;
 }
 
-# 306
+# 327
 void initialisation(void)
 {
 

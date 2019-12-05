@@ -3024,27 +3024,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 :U ..
 "70
--> -> 27 `i `uc
+-> -> 4 `i `uc
 "71
--> -> 10 `i `uc
+-> -> 4 `i `uc
 "72
--> -> 21 `i `uc
+-> -> 27 `i `uc
 "73
--> -> 14 `i `uc
+-> -> 4 `i `uc
 "74
 -> -> 4 `i `uc
 "75
--> -> 10 `i `uc
+-> -> 27 `i `uc
 "76
--> -> 17 `i `uc
+-> -> 4 `i `uc
 "77
--> -> 17 `i `uc
+-> -> 4 `i `uc
 ..
 :U ..
 "79
--> -> 14 `i `uc
+-> -> 0 `i `uc
 "80
--> -> 31 `i `uc
+-> -> 14 `i `uc
 "81
 -> -> 31 `i `uc
 "82
@@ -3054,9 +3054,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "84
 -> -> 31 `i `uc
 "85
--> -> 31 `i `uc
-"86
 -> -> 14 `i `uc
+"86
+-> -> 0 `i `uc
 ..
 :U ..
 "88
@@ -3126,23 +3126,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Lcd4Lignes.c: 67: {
 [; ;Lcd4Lignes.c: 68: {8,4,4,0x0A,0x11,0x1F,0x11,0},
 [; ;Lcd4Lignes.c: 69: {
-[; ;Lcd4Lignes.c: 70: 0b11011,
-[; ;Lcd4Lignes.c: 71: 0b01010,
-[; ;Lcd4Lignes.c: 72: 0b10101,
-[; ;Lcd4Lignes.c: 73: 0b01110,
+[; ;Lcd4Lignes.c: 70: 0b00100,
+[; ;Lcd4Lignes.c: 71: 0b00100,
+[; ;Lcd4Lignes.c: 72: 0b11011,
+[; ;Lcd4Lignes.c: 73: 0b00100,
 [; ;Lcd4Lignes.c: 74: 0b00100,
-[; ;Lcd4Lignes.c: 75: 0b01010,
-[; ;Lcd4Lignes.c: 76: 0b10001,
-[; ;Lcd4Lignes.c: 77: 0b10001},
+[; ;Lcd4Lignes.c: 75: 0b11011,
+[; ;Lcd4Lignes.c: 76: 0b00100,
+[; ;Lcd4Lignes.c: 77: 0b00100},
 [; ;Lcd4Lignes.c: 78: {
-[; ;Lcd4Lignes.c: 79: 0b01110,
-[; ;Lcd4Lignes.c: 80: 0b11111,
+[; ;Lcd4Lignes.c: 79: 0b00000,
+[; ;Lcd4Lignes.c: 80: 0b01110,
 [; ;Lcd4Lignes.c: 81: 0b11111,
 [; ;Lcd4Lignes.c: 82: 0b11111,
 [; ;Lcd4Lignes.c: 83: 0b11111,
 [; ;Lcd4Lignes.c: 84: 0b11111,
-[; ;Lcd4Lignes.c: 85: 0b11111,
-[; ;Lcd4Lignes.c: 86: 0b01110,},
+[; ;Lcd4Lignes.c: 85: 0b01110,
+[; ;Lcd4Lignes.c: 86: 0b00000,},
 [; ;Lcd4Lignes.c: 87: {
 [; ;Lcd4Lignes.c: 88: 0b00000,
 [; ;Lcd4Lignes.c: 89: 0b00000,

@@ -4944,7 +4944,7 @@ void lcd_cacheCurseur(void);
 # 78
 void lcd_montreCurseur(void);
 
-# 37 "main.c"
+# 36 "main.c"
 void initialisation(void);
 void initTabVue(void);
 void rempliMines(int nb);
@@ -4954,6 +4954,9 @@ void deplace(char* x, char* y);
 bool demine(char x, char y);
 void enleveTuilesAutour(char x, char y);
 bool gagne(int* pMines);
+void afficheTabVue(void);
+void afficheTabMine(void);
+char getAnalog(char canal);
 
 
 char m_tabVue[4][20+1];
@@ -4962,72 +4965,216 @@ char m_tabMines[4][20+1];
 
 void main(void)
 {
+char x = 1;
+char y = 1;
+int nbMines = 4;
+
 initialisation();
-rempliMines(5);
+lcd_init();
+
+lcd_effaceAffichage();
+lcd_curseurHome();
+
+initTabVue();
+rempliMines(nbMines);
+metToucheCombien();
+afficheTabVue();
+
 while(1)
 {
+deplace(&x, &y);
+_delay((unsigned long)((100)*(1000000/4000.0)));
+if(PORTBbits.RB1 == 0){
+demine(x, y);
+}
+if(gagne(&nbMines)){
+afficheTabMine();
+}
+}
+}
 
+void afficheTabVue(void){
+lcd_effaceAffichage();
+for(int i = 0; i < 4; i++){
+lcd_gotoXY(1, i+1);
+lcd_putMessage(m_tabVue[i]);
 }
 }
 
-# 69
+void afficheTabMine(void){
+lcd_effaceAffichage();
+for(int i = 0; i < 4; i++){
+lcd_gotoXY(1, i+1);
+lcd_putMessage(m_tabMines[i]);
+}
+}
+
+# 107
 void initTabVue(void){
-for(int i = 1; i<4; i++){
+for(int i = 0; i<4; i++){
 for(int j = 0; j<20; j++){
-m_tabVue[i][j] = 1;
+m_tabVue[i][j] = 2;
 }
 m_tabVue[i][20] = '\0';
 }
 }
 
-# 85
+# 123
 void rempliMines(int nb){
 char col = 0;
 char ligne = 0;
+
+for(int i = 0; i < 20; i++){
+for(int j = 0; j < 4; j++){
+m_tabMines[j][i] = 32;
+}
+}
+
 for(int i = 0; i < nb; i++){
 do{
 col = rand()%20;
 ligne = rand()%4;
-}while(m_tabMines[4][20] != 32);
-m_tabMines[4][20] = 2;
+}while(m_tabMines[ligne][col] != 32);
+m_tabMines[ligne][col] = 3;
 }
-}
-
-# 106
-void metToucheCombien(void){
-for(int i = 1; i<20; i++){
-for(int j = 0; j<4; j++){
-calculToucheCombien(j, i);
-}
-}
-}
-
-# 119
-char calculToucheCombien(int ligne, int colonne){
-
-}
-
-# 129
-void deplace(char* x, char* y){
-
-}
-
-# 141
-bool demine(char x, char y){
-
 }
 
 # 151
+void metToucheCombien(void){
+for(int i = 0; i<20; i++){
+for(int j = 0; j<4; j++){
+if(m_tabMines[j][i] != 3){
+m_tabMines[j][i] = calculToucheCombien(j, i);
+}
+}
+}
+}
+
+# 166
+char calculToucheCombien(int ligne, int colonne){
+int x = 0;
+int y = 0;
+char total = 0;
+
+for(int i = -1; i < 2; i++){
+for(int j = -1; j < 2; j++){
+if(j != 0 || i != 0){
+x = colonne + i;
+y = ligne + j;
+if(x >= 0 && x < 20 && y >= 0 && y < 4){
+if(m_tabMines[y][x] == 3){
+total++;
+}
+}
+}
+}
+}
+if(total == 0){
+return 32;
+}
+return total+48;
+}
+
+# 196
+void deplace(char* px, char* py){
+int aX = getAnalog(7);
+int aY = getAnalog(6);
+
+if(aX < 100){
+(*px)--;
+if(*px <= 0){
+*px = 20;
+}
+lcd_gotoXY((*px), (*py));
+}else if(aX > 150){
+(*px)++;
+if(*px > 20){
+*px = 1;
+}
+lcd_gotoXY((*px), (*py));
+}else if(aY < 100){
+(*py)++;
+if(*py > 4){
+*py = 1;
+}
+lcd_gotoXY((*px), (*py));
+}else if(aY > 150){
+(*py)--;
+if(*py <= 0){
+*py = 4;
+
+}
+lcd_gotoXY((*px), (*py));
+}
+
+
+}
+
+# 238
+bool demine(char x, char y){
+
+while(PORTBbits.RB1 == 0);
+
+x--;
+y--;
+
+if(m_tabMines[y][x] == 3){
+lcd_gotoXY(x+1, y+1);
+return 0;
+}
+if(m_tabMines[y][x] == 32){
+enleveTuilesAutour(x, y);
+}else if(m_tabMines[y][x] >= 48){
+m_tabVue[y][x] = m_tabMines[y][x];
+}
+afficheTabVue();
+lcd_gotoXY(x+1, y+1);
+return 1;
+}
+
+# 265
 void enleveTuilesAutour(char x, char y){
 
+char colonne = 0;
+char ligne = 0;
+
+for(int i = -1; i < 2; i++){
+for(int j = -1; j < 2; j++){
+colonne = x + i;
+ligne = y + j;
+m_tabVue[ligne][colonne] = m_tabMines[ligne][colonne];
+}
+}
 }
 
-# 162
+# 286
 bool gagne(int* pMines){
-
+char ttl = 0;
+for(int i = 0; i<4; i++){
+for(int j = 0; j<20; j++){
+if(m_tabVue[i][j] == 2){
+ttl++;
+}
+}
+}
+if(ttl == (*pMines)){
+return 1;
+}
+return 0;
 }
 
-# 171
+# 306
+char getAnalog(char canal)
+{
+ADCON0bits.CHS = canal;
+_delay((unsigned long)((1)*(1000000/4000000.0)));
+ADCON0bits.GO_DONE = 1;
+while (ADCON0bits.GO_DONE == 1)
+;
+return ADRESH;
+}
+
+# 321
 void initialisation(void)
 {
 

@@ -1,14 +1,100 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"37 main.c
+"36 main.c
 [v _initialisation `(v ~T0 @X0 0 ef ]
+"27 Lcd4Lignes.h
+[v _lcd_init `(v ~T0 @X0 0 ef ]
+"56
+[v _lcd_effaceAffichage `(v ~T0 @X0 0 ef ]
 "39
+[v _lcd_curseurHome `(v ~T0 @X0 0 ef ]
+"37 main.c
+[v _initTabVue `(v ~T0 @X0 0 ef ]
+"38
 [v _rempliMines `(v ~T0 @X0 0 ef1`i ]
+"39
+[v _metToucheCombien `(v ~T0 @X0 0 ef ]
+"45
+[v _afficheTabVue `(v ~T0 @X0 0 ef ]
+"41
+[v _deplace `(v ~T0 @X0 0 ef2`*uc`*uc ]
+[v F2525 `(v ~T0 @X0 1 tf1`ul ]
+"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
+[v __delay `JF2525 ~T0 @X0 0 e ]
+[p i __delay ]
+"794 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"804
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
+"814
+[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . AN12 AN10 AN8 AN9 AN11 PGM PGC PGD ]
+"824
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . FLT0 C12IN3M . C12IN2M ]
+"830
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . . C12IN3N . C12IN2N ]
+"836
+[s S38 :3 `uc 1 :1 `uc 1 ]
+[n S38 . . CCP2_PA2 ]
+"793
+[u S32 `S33 1 `S34 1 `S35 1 `S36 1 `S37 1 `S38 1 ]
+[n S32 . . . . . . . ]
+"841
+[v _PORTBbits `VS32 ~T0 @X0 0 e@3969 ]
+"42 main.c
+[v _demine `(uc ~T0 @X0 0 ef2`uc`uc ]
+"44
+[v _gagne `(uc ~T0 @X0 0 ef1`*i ]
+"46
+[v _afficheTabMine `(v ~T0 @X0 0 ef ]
+"34 Lcd4Lignes.h
+[v _lcd_gotoXY `(v ~T0 @X0 0 ef2`uc`uc ]
+"51
+[v _lcd_putMessage `(v ~T0 @X0 0 ef1`*Cuc ]
 "75 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdlib.h
 [v _rand `(i ~T0 @X0 0 ef ]
-"41 main.c
+"40 main.c
 [v _calculToucheCombien `(uc ~T0 @X0 0 ef2`i`i ]
-"2698 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+"47
+[v _getAnalog `(uc ~T0 @X0 0 ef1`uc ]
+"43
+[v _enleveTuilesAutour `(v ~T0 @X0 0 ef2`uc`uc ]
+"5181 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+[s S205 :1 `uc 1 :1 `uc 1 ]
+[n S205 . . GO_NOT_DONE ]
+"5185
+[s S206 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S206 . ADON GO_nDONE CHS ]
+"5190
+[s S207 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S207 . . DONE CHS0 CHS1 CHS2 CHS3 ]
+"5198
+[s S208 :1 `uc 1 :1 `uc 1 ]
+[n S208 . . NOT_DONE ]
+"5202
+[s S209 :1 `uc 1 :1 `uc 1 ]
+[n S209 . . nDONE ]
+"5206
+[s S210 :1 `uc 1 :1 `uc 1 ]
+[n S210 . . GO_DONE ]
+"5210
+[s S211 :1 `uc 1 :1 `uc 1 ]
+[n S211 . . GO ]
+"5214
+[s S212 :1 `uc 1 :1 `uc 1 ]
+[n S212 . . GODONE ]
+"5180
+[u S204 `S205 1 `S206 1 `S207 1 `S208 1 `S209 1 `S210 1 `S211 1 `S212 1 ]
+[n S204 . . . . . . . . . ]
+"5219
+[v _ADCON0bits `VS204 ~T0 @X0 0 e@4034 ]
+"5308
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"2698
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "508
 [v _ANSELH `Vuc ~T0 @X0 0 e@3967 ]
@@ -47,35 +133,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S18 . . ]
 "463
 [v _ANSELbits `VS18 ~T0 @X0 0 e@3966 ]
-"5181
-[s S205 :1 `uc 1 :1 `uc 1 ]
-[n S205 . . GO_NOT_DONE ]
-"5185
-[s S206 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S206 . ADON GO_nDONE CHS ]
-"5190
-[s S207 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S207 . . DONE CHS0 CHS1 CHS2 CHS3 ]
-"5198
-[s S208 :1 `uc 1 :1 `uc 1 ]
-[n S208 . . NOT_DONE ]
-"5202
-[s S209 :1 `uc 1 :1 `uc 1 ]
-[n S209 . . nDONE ]
-"5206
-[s S210 :1 `uc 1 :1 `uc 1 ]
-[n S210 . . GO_DONE ]
-"5210
-[s S211 :1 `uc 1 :1 `uc 1 ]
-[n S211 . . GO ]
-"5214
-[s S212 :1 `uc 1 :1 `uc 1 ]
-[n S212 . . GODONE ]
-"5180
-[u S204 `S205 1 `S206 1 `S207 1 `S208 1 `S209 1 `S210 1 `S211 1 `S212 1 ]
-[n S204 . . . . . . . . . ]
-"5219
-[v _ADCON0bits `VS204 ~T0 @X0 0 e@4034 ]
 "5124
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "5059
@@ -3156,318 +3213,923 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Lcd4Lignes.h: 68: void lcd_effaceChar(unsigned char nbr);
 [; ;Lcd4Lignes.h: 73: void lcd_cacheCurseur(void);
 [; ;Lcd4Lignes.h: 78: void lcd_montreCurseur(void);
-[; ;main.c: 37: void initialisation(void);
-[; ;main.c: 38: void initTabVue(void);
-[; ;main.c: 39: void rempliMines(int nb);
-[; ;main.c: 40: void metToucheCombien(void);
-[; ;main.c: 41: char calculToucheCombien(int ligne, int colonne);
-[; ;main.c: 42: void deplace(char* x, char* y);
-[; ;main.c: 43: bool demine(char x, char y);
-[; ;main.c: 44: void enleveTuilesAutour(char x, char y);
-[; ;main.c: 45: bool gagne(int* pMines);
-[v F2842 `uc ~T0 @X0 + -> 20 `i -> 1 `i t ]
-"48 main.c
-[v _m_tabVue `F2842 ~T0 @X0 -> 4 `i e ]
-[; ;main.c: 48: char m_tabVue[4][20+1];
-[v F2844 `uc ~T0 @X0 + -> 20 `i -> 1 `i t ]
-"49
-[v _m_tabMines `F2844 ~T0 @X0 -> 4 `i e ]
-[; ;main.c: 49: char m_tabMines[4][20+1];
+[; ;main.c: 36: void initialisation(void);
+[; ;main.c: 37: void initTabVue(void);
+[; ;main.c: 38: void rempliMines(int nb);
+[; ;main.c: 39: void metToucheCombien(void);
+[; ;main.c: 40: char calculToucheCombien(int ligne, int colonne);
+[; ;main.c: 41: void deplace(char* x, char* y);
+[; ;main.c: 42: bool demine(char x, char y);
+[; ;main.c: 43: void enleveTuilesAutour(char x, char y);
+[; ;main.c: 44: bool gagne(int* pMines);
+[; ;main.c: 45: void afficheTabVue(void);
+[; ;main.c: 46: void afficheTabMine(void);
+[; ;main.c: 47: char getAnalog(char canal);
+[v F2848 `uc ~T0 @X0 + -> 20 `i -> 1 `i t ]
+"50 main.c
+[v _m_tabVue `F2848 ~T0 @X0 -> 4 `i e ]
+[; ;main.c: 50: char m_tabVue[4][20+1];
+[v F2850 `uc ~T0 @X0 + -> 20 `i -> 1 `i t ]
+"51
+[v _m_tabMines `F2850 ~T0 @X0 -> 4 `i e ]
+[; ;main.c: 51: char m_tabMines[4][20+1];
 [v $root$_main `(v ~T0 @X0 0 e ]
-"52
+"54
 [v _main `(v ~T0 @X0 1 ef ]
-"53
+"55
 {
-[; ;main.c: 52: void main(void)
-[; ;main.c: 53: {
+[; ;main.c: 54: void main(void)
+[; ;main.c: 55: {
 [e :U _main ]
 [f ]
-[; ;main.c: 54: initialisation();
-"54
-[e ( _initialisation ..  ]
-[; ;main.c: 55: rempliMines(5);
-"55
-[e ( _rempliMines (1 -> 5 `i ]
-[; ;main.c: 56: while(1)
 "56
-[e :U 303 ]
-[; ;main.c: 57: {
+[v _x `uc ~T0 @X0 1 a ]
+[; ;main.c: 56: char x = 1;
+[e = _x -> -> 1 `i `uc ]
 "57
+[v _y `uc ~T0 @X0 1 a ]
+[; ;main.c: 57: char y = 1;
+[e = _y -> -> 1 `i `uc ]
+"58
+[v _nbMines `i ~T0 @X0 1 a ]
+[; ;main.c: 58: int nbMines = 4;
+[e = _nbMines -> 4 `i ]
+[; ;main.c: 60: initialisation();
+"60
+[e ( _initialisation ..  ]
+[; ;main.c: 61: lcd_init();
+"61
+[e ( _lcd_init ..  ]
+[; ;main.c: 63: lcd_effaceAffichage();
+"63
+[e ( _lcd_effaceAffichage ..  ]
+[; ;main.c: 64: lcd_curseurHome();
+"64
+[e ( _lcd_curseurHome ..  ]
+[; ;main.c: 66: initTabVue();
+"66
+[e ( _initTabVue ..  ]
+[; ;main.c: 67: rempliMines(nbMines);
+"67
+[e ( _rempliMines (1 _nbMines ]
+[; ;main.c: 68: metToucheCombien();
+"68
+[e ( _metToucheCombien ..  ]
+[; ;main.c: 69: afficheTabVue();
+"69
+[e ( _afficheTabVue ..  ]
+[; ;main.c: 71: while(1)
+"71
+[e :U 303 ]
+[; ;main.c: 72: {
+"72
 {
-"59
+[; ;main.c: 73: deplace(&x, &y);
+"73
+[e ( _deplace (2 , &U _x &U _y ]
+[; ;main.c: 74: _delay((unsigned long)((100)*(1000000/4000.0)));
+"74
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+[; ;main.c: 75: if(PORTBbits.RB1 == 0){
+"75
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 305  ]
+{
+[; ;main.c: 76: demine(x, y);
+"76
+[e ( _demine (2 , _x _y ]
+"77
+}
+[e :U 305 ]
+[; ;main.c: 77: }
+[; ;main.c: 78: if(gagne(&nbMines)){
+"78
+[e $ ! != -> ( _gagne (1 &U _nbMines `i -> -> -> 0 `i `uc `i 306  ]
+{
+[; ;main.c: 79: afficheTabMine();
+"79
+[e ( _afficheTabMine ..  ]
+"80
+}
+[e :U 306 ]
+"81
 }
 [e :U 302 ]
-"56
+"71
 [e $U 303  ]
 [e :U 304 ]
-[; ;main.c: 59: }
-[; ;main.c: 60: }
-"60
+[; ;main.c: 80: }
+[; ;main.c: 81: }
+[; ;main.c: 82: }
+"82
 [e :UE 301 ]
 }
-"69
-[v _initTabVue `(v ~T0 @X0 1 ef ]
+"84
+[v _afficheTabVue `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 69: void initTabVue(void){
-[e :U _initTabVue ]
+[; ;main.c: 84: void afficheTabVue(void){
+[e :U _afficheTabVue ]
 [f ]
-[; ;main.c: 70: for(int i = 1; i<4; i++){
-"70
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 1 `i ]
-[e $ < _i -> 4 `i 306  ]
-[e $U 307  ]
-[e :U 306 ]
-{
-[; ;main.c: 71: for(int j = 0; j<20; j++){
-"71
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 20 `i 309  ]
-[e $U 310  ]
-[e :U 309 ]
-{
-[; ;main.c: 72: m_tabVue[i][j] = 1;
-"72
-[e = *U + &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"73
-}
-"71
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 20 `i 309  ]
-[e :U 310 ]
-"73
-}
-[; ;main.c: 73: }
-[; ;main.c: 74: m_tabVue[i][20] = '\0';
-"74
-[e = *U + &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> -> 20 `i `ui `ux -> -> # *U &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux -> -> 0 `ui `uc ]
-"75
-}
-"70
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 306  ]
-[e :U 307 ]
-"75
-}
-[; ;main.c: 75: }
-[; ;main.c: 76: }
-"76
-[e :UE 305 ]
-}
+[; ;main.c: 85: lcd_effaceAffichage();
 "85
-[v _rempliMines `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;main.c: 85: void rempliMines(int nb){
-[e :U _rempliMines ]
-[v _nb `i ~T0 @X0 1 r1 ]
-[f ]
+[e ( _lcd_effaceAffichage ..  ]
+[; ;main.c: 86: for(int i = 0; i < 4; i++){
 "86
-[v _col `uc ~T0 @X0 1 a ]
-[; ;main.c: 86: char col = 0;
-[e = _col -> -> 0 `i `uc ]
-"87
-[v _ligne `uc ~T0 @X0 1 a ]
-[; ;main.c: 87: char ligne = 0;
-[e = _ligne -> -> 0 `i `uc ]
-[; ;main.c: 88: for(int i = 0; i < nb; i++){
-"88
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 316  ]
-[e :U 313 ]
+[e $ < _i -> 4 `i 308  ]
+[e $U 309  ]
+[e :U 308 ]
 {
-[; ;main.c: 89: do{
-"89
-[e :U 319 ]
-{
-[; ;main.c: 90: col = rand()%20;
-"90
-[e = _col -> % ( _rand ..  -> 20 `i `uc ]
-[; ;main.c: 91: ligne = rand()%4;
-"91
-[e = _ligne -> % ( _rand ..  -> 4 `i `uc ]
-"92
-}
-[; ;main.c: 92: }while(m_tabMines[4][20] != 32);
-[e $ != -> *U + &U *U + &U _m_tabMines * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> -> 20 `i `ui `ux -> -> # *U &U *U + &U _m_tabMines * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 32 `i 319  ]
-[e :U 318 ]
-[; ;main.c: 93: m_tabMines[4][20] = 2;
-"93
-[e = *U + &U *U + &U _m_tabMines * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> -> 20 `i `ui `ux -> -> # *U &U *U + &U _m_tabMines * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux -> -> 2 `i `uc ]
-"94
-}
+[; ;main.c: 87: lcd_gotoXY(1, i+1);
+"87
+[e ( _lcd_gotoXY (2 , -> -> 1 `i `uc -> + _i -> 1 `i `uc ]
+[; ;main.c: 88: lcd_putMessage(m_tabVue[i]);
 "88
+[e ( _lcd_putMessage (1 -> &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `*Cuc ]
+"89
+}
+"86
 [e ++ _i -> 1 `i ]
-[e :U 316 ]
-[e $ < _i _nb 313  ]
-[e :U 314 ]
-"94
+[e $ < _i -> 4 `i 308  ]
+[e :U 309 ]
+"89
 }
-[; ;main.c: 94: }
-[; ;main.c: 95: }
-"95
-[e :UE 312 ]
+[; ;main.c: 89: }
+[; ;main.c: 90: }
+"90
+[e :UE 307 ]
 }
-"106
-[v _metToucheCombien `(v ~T0 @X0 1 ef ]
+"92
+[v _afficheTabMine `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 106: void metToucheCombien(void){
-[e :U _metToucheCombien ]
+[; ;main.c: 92: void afficheTabMine(void){
+[e :U _afficheTabMine ]
 [f ]
-[; ;main.c: 107: for(int i = 1; i<20; i++){
-"107
+[; ;main.c: 93: lcd_effaceAffichage();
+"93
+[e ( _lcd_effaceAffichage ..  ]
+[; ;main.c: 94: for(int i = 0; i < 4; i++){
+"94
 {
 [v _i `i ~T0 @X0 1 a ]
-[e = _i -> 1 `i ]
-[e $ < _i -> 20 `i 321  ]
-[e $U 322  ]
-[e :U 321 ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 312  ]
+[e $U 313  ]
+[e :U 312 ]
 {
-[; ;main.c: 108: for(int j = 0; j<4; j++){
+[; ;main.c: 95: lcd_gotoXY(1, i+1);
+"95
+[e ( _lcd_gotoXY (2 , -> -> 1 `i `uc -> + _i -> 1 `i `uc ]
+[; ;main.c: 96: lcd_putMessage(m_tabMines[i]);
+"96
+[e ( _lcd_putMessage (1 -> &U *U + &U _m_tabMines * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `*Cuc ]
+"97
+}
+"94
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 312  ]
+[e :U 313 ]
+"97
+}
+[; ;main.c: 97: }
+[; ;main.c: 98: }
+"98
+[e :UE 311 ]
+}
+"107
+[v _initTabVue `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 107: void initTabVue(void){
+[e :U _initTabVue ]
+[f ]
+[; ;main.c: 108: for(int i = 0; i<4; i++){
 "108
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 316  ]
+[e $U 317  ]
+[e :U 316 ]
+{
+[; ;main.c: 109: for(int j = 0; j<20; j++){
+"109
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 4 `i 324  ]
-[e $U 325  ]
-[e :U 324 ]
+[e $ < _j -> 20 `i 319  ]
+[e $U 320  ]
+[e :U 319 ]
 {
-[; ;main.c: 109: calculToucheCombien(j, i);
-"109
-[e ( _calculToucheCombien (2 , _j _i ]
+[; ;main.c: 110: m_tabVue[i][j] = 2;
 "110
+[e = *U + &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux -> -> 2 `i `uc ]
+"111
+}
+"109
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 20 `i 319  ]
+[e :U 320 ]
+"111
+}
+[; ;main.c: 111: }
+[; ;main.c: 112: m_tabVue[i][20] = '\0';
+"112
+[e = *U + &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> -> 20 `i `ui `ux -> -> # *U &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux -> -> 0 `ui `uc ]
+"113
 }
 "108
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 4 `i 324  ]
-[e :U 325 ]
-"110
-}
-"111
-}
-"107
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 20 `i 321  ]
-[e :U 322 ]
-"111
+[e $ < _i -> 4 `i 316  ]
+[e :U 317 ]
+"113
 }
-[; ;main.c: 110: }
-[; ;main.c: 111: }
-[; ;main.c: 112: }
-"112
-[e :UE 320 ]
+[; ;main.c: 113: }
+[; ;main.c: 114: }
+"114
+[e :UE 315 ]
 }
-"119
+"123
+[v _rempliMines `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;main.c: 123: void rempliMines(int nb){
+[e :U _rempliMines ]
+[v _nb `i ~T0 @X0 1 r1 ]
+[f ]
+"124
+[v _col `uc ~T0 @X0 1 a ]
+[; ;main.c: 124: char col = 0;
+[e = _col -> -> 0 `i `uc ]
+"125
+[v _ligne `uc ~T0 @X0 1 a ]
+[; ;main.c: 125: char ligne = 0;
+[e = _ligne -> -> 0 `i `uc ]
+[; ;main.c: 127: for(int i = 0; i < 20; i++){
+"127
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 20 `i 323  ]
+[e $U 324  ]
+[e :U 323 ]
+{
+[; ;main.c: 128: for(int j = 0; j < 4; j++){
+"128
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 4 `i 326  ]
+[e $U 327  ]
+[e :U 326 ]
+{
+[; ;main.c: 129: m_tabMines[j][i] = 32;
+"129
+[e = *U + &U *U + &U _m_tabMines * -> -> _j `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _m_tabMines * -> -> _j `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux -> -> 32 `i `uc ]
+"130
+}
+"128
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 4 `i 326  ]
+[e :U 327 ]
+"130
+}
+"131
+}
+"127
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 20 `i 323  ]
+[e :U 324 ]
+"131
+}
+[; ;main.c: 130: }
+[; ;main.c: 131: }
+[; ;main.c: 133: for(int i = 0; i < nb; i++){
+"133
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 332  ]
+[e :U 329 ]
+{
+[; ;main.c: 134: do{
+"134
+[e :U 335 ]
+{
+[; ;main.c: 135: col = rand()%20;
+"135
+[e = _col -> % ( _rand ..  -> 20 `i `uc ]
+[; ;main.c: 136: ligne = rand()%4;
+"136
+[e = _ligne -> % ( _rand ..  -> 4 `i `uc ]
+"137
+}
+[; ;main.c: 137: }while(m_tabMines[ligne][col] != 32);
+[e $ != -> *U + &U *U + &U _m_tabMines * -> _ligne `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _col `ux -> -> # *U &U *U + &U _m_tabMines * -> _ligne `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 32 `i 335  ]
+[e :U 334 ]
+[; ;main.c: 138: m_tabMines[ligne][col] = 3;
+"138
+[e = *U + &U *U + &U _m_tabMines * -> _ligne `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _col `ux -> -> # *U &U *U + &U _m_tabMines * -> _ligne `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux -> -> 3 `i `uc ]
+"139
+}
+"133
+[e ++ _i -> 1 `i ]
+[e :U 332 ]
+[e $ < _i _nb 329  ]
+[e :U 330 ]
+"139
+}
+[; ;main.c: 139: }
+[; ;main.c: 140: }
+"140
+[e :UE 322 ]
+}
+"151
+[v _metToucheCombien `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 151: void metToucheCombien(void){
+[e :U _metToucheCombien ]
+[f ]
+[; ;main.c: 152: for(int i = 0; i<20; i++){
+"152
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 20 `i 337  ]
+[e $U 338  ]
+[e :U 337 ]
+{
+[; ;main.c: 153: for(int j = 0; j<4; j++){
+"153
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 4 `i 340  ]
+[e $U 341  ]
+[e :U 340 ]
+{
+[; ;main.c: 154: if(m_tabMines[j][i] != 3){
+"154
+[e $ ! != -> *U + &U *U + &U _m_tabMines * -> -> _j `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _m_tabMines * -> -> _j `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 3 `i 343  ]
+{
+[; ;main.c: 155: m_tabMines[j][i] = calculToucheCombien(j, i);
+"155
+[e = *U + &U *U + &U _m_tabMines * -> -> _j `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _m_tabMines * -> -> _j `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux ( _calculToucheCombien (2 , _j _i ]
+"156
+}
+[e :U 343 ]
+"157
+}
+"153
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 4 `i 340  ]
+[e :U 341 ]
+"157
+}
+"158
+}
+"152
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 20 `i 337  ]
+[e :U 338 ]
+"158
+}
+[; ;main.c: 156: }
+[; ;main.c: 157: }
+[; ;main.c: 158: }
+[; ;main.c: 159: }
+"159
+[e :UE 336 ]
+}
+"166
 [v _calculToucheCombien `(uc ~T0 @X0 1 ef2`i`i ]
 {
-[; ;main.c: 119: char calculToucheCombien(int ligne, int colonne){
+[; ;main.c: 166: char calculToucheCombien(int ligne, int colonne){
 [e :U _calculToucheCombien ]
 [v _ligne `i ~T0 @X0 1 r1 ]
 [v _colonne `i ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 121: }
-"121
-[e :UE 327 ]
+"167
+[v _x `i ~T0 @X0 1 a ]
+[; ;main.c: 167: int x = 0;
+[e = _x -> 0 `i ]
+"168
+[v _y `i ~T0 @X0 1 a ]
+[; ;main.c: 168: int y = 0;
+[e = _y -> 0 `i ]
+"169
+[v _total `uc ~T0 @X0 1 a ]
+[; ;main.c: 169: char total = 0;
+[e = _total -> -> 0 `i `uc ]
+[; ;main.c: 171: for(int i = -1; i < 2; i++){
+"171
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -U -> 1 `i ]
+[e $ < _i -> 2 `i 345  ]
+[e $U 346  ]
+[e :U 345 ]
+{
+[; ;main.c: 172: for(int j = -1; j < 2; j++){
+"172
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -U -> 1 `i ]
+[e $ < _j -> 2 `i 348  ]
+[e $U 349  ]
+[e :U 348 ]
+{
+[; ;main.c: 173: if(j != 0 || i != 0){
+"173
+[e $ ! || != _j -> 0 `i != _i -> 0 `i 351  ]
+{
+[; ;main.c: 174: x = colonne + i;
+"174
+[e = _x + _colonne _i ]
+[; ;main.c: 175: y = ligne + j;
+"175
+[e = _y + _ligne _j ]
+[; ;main.c: 176: if(x >= 0 && x < 20 && y >= 0 && y < 4){
+"176
+[e $ ! && && && >= _x -> 0 `i < _x -> 20 `i >= _y -> 0 `i < _y -> 4 `i 352  ]
+{
+[; ;main.c: 177: if(m_tabMines[y][x] == 3){
+"177
+[e $ ! == -> *U + &U *U + &U _m_tabMines * -> -> _y `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> _x `ui `ux -> -> # *U &U *U + &U _m_tabMines * -> -> _y `ui `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 3 `i 353  ]
+{
+[; ;main.c: 178: total++;
+"178
+[e ++ _total -> -> 1 `i `uc ]
+"179
 }
-"129
+[e :U 353 ]
+"180
+}
+[e :U 352 ]
+"181
+}
+[e :U 351 ]
+"182
+}
+"172
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 2 `i 348  ]
+[e :U 349 ]
+"182
+}
+"183
+}
+"171
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 2 `i 345  ]
+[e :U 346 ]
+"183
+}
+[; ;main.c: 179: }
+[; ;main.c: 180: }
+[; ;main.c: 181: }
+[; ;main.c: 182: }
+[; ;main.c: 183: }
+[; ;main.c: 184: if(total == 0){
+"184
+[e $ ! == -> _total `i -> 0 `i 354  ]
+{
+[; ;main.c: 185: return 32;
+"185
+[e ) -> -> 32 `i `uc ]
+[e $UE 344  ]
+"186
+}
+[e :U 354 ]
+[; ;main.c: 186: }
+[; ;main.c: 187: return total+48;
+"187
+[e ) -> + -> _total `i -> 48 `i `uc ]
+[e $UE 344  ]
+[; ;main.c: 188: }
+"188
+[e :UE 344 ]
+}
+"196
 [v _deplace `(v ~T0 @X0 1 ef2`*uc`*uc ]
 {
-[; ;main.c: 129: void deplace(char* x, char* y){
+[; ;main.c: 196: void deplace(char* px, char* py){
 [e :U _deplace ]
-[v _x `*uc ~T0 @X0 1 r1 ]
-[v _y `*uc ~T0 @X0 1 r2 ]
+[v _px `*uc ~T0 @X0 1 r1 ]
+[v _py `*uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 131: }
-"131
-[e :UE 328 ]
+"197
+[v _aX `i ~T0 @X0 1 a ]
+[; ;main.c: 197: int aX = getAnalog(7);
+[e = _aX -> ( _getAnalog (1 -> -> 7 `i `uc `i ]
+"198
+[v _aY `i ~T0 @X0 1 a ]
+[; ;main.c: 198: int aY = getAnalog(6);
+[e = _aY -> ( _getAnalog (1 -> -> 6 `i `uc `i ]
+[; ;main.c: 200: if(aX < 100){
+"200
+[e $ ! < _aX -> 100 `i 356  ]
+{
+[; ;main.c: 201: (*px)--;
+"201
+[e -- *U _px -> -> 1 `i `uc ]
+[; ;main.c: 202: if(*px <= 0){
+"202
+[e $ ! <= -> *U _px `i -> 0 `i 357  ]
+{
+[; ;main.c: 203: *px = 20;
+"203
+[e = *U _px -> -> 20 `i `uc ]
+"204
 }
-"141
+[e :U 357 ]
+[; ;main.c: 204: }
+[; ;main.c: 205: lcd_gotoXY((*px), (*py));
+"205
+[e ( _lcd_gotoXY (2 , *U _px *U _py ]
+"206
+}
+[; ;main.c: 206: }else if(aX > 150){
+[e $U 358  ]
+[e :U 356 ]
+[e $ ! > _aX -> 150 `i 359  ]
+{
+[; ;main.c: 207: (*px)++;
+"207
+[e ++ *U _px -> -> 1 `i `uc ]
+[; ;main.c: 208: if(*px > 20){
+"208
+[e $ ! > -> *U _px `i -> 20 `i 360  ]
+{
+[; ;main.c: 209: *px = 1;
+"209
+[e = *U _px -> -> 1 `i `uc ]
+"210
+}
+[e :U 360 ]
+[; ;main.c: 210: }
+[; ;main.c: 211: lcd_gotoXY((*px), (*py));
+"211
+[e ( _lcd_gotoXY (2 , *U _px *U _py ]
+"212
+}
+[; ;main.c: 212: }else if(aY < 100){
+[e $U 361  ]
+[e :U 359 ]
+[e $ ! < _aY -> 100 `i 362  ]
+{
+[; ;main.c: 213: (*py)++;
+"213
+[e ++ *U _py -> -> 1 `i `uc ]
+[; ;main.c: 214: if(*py > 4){
+"214
+[e $ ! > -> *U _py `i -> 4 `i 363  ]
+{
+[; ;main.c: 215: *py = 1;
+"215
+[e = *U _py -> -> 1 `i `uc ]
+"216
+}
+[e :U 363 ]
+[; ;main.c: 216: }
+[; ;main.c: 217: lcd_gotoXY((*px), (*py));
+"217
+[e ( _lcd_gotoXY (2 , *U _px *U _py ]
+"218
+}
+[; ;main.c: 218: }else if(aY > 150){
+[e $U 364  ]
+[e :U 362 ]
+[e $ ! > _aY -> 150 `i 365  ]
+{
+[; ;main.c: 219: (*py)--;
+"219
+[e -- *U _py -> -> 1 `i `uc ]
+[; ;main.c: 220: if(*py <= 0){
+"220
+[e $ ! <= -> *U _py `i -> 0 `i 366  ]
+{
+[; ;main.c: 221: *py = 4;
+"221
+[e = *U _py -> -> 4 `i `uc ]
+"223
+}
+[e :U 366 ]
+[; ;main.c: 223: }
+[; ;main.c: 224: lcd_gotoXY((*px), (*py));
+"224
+[e ( _lcd_gotoXY (2 , *U _px *U _py ]
+"225
+}
+[e :U 365 ]
+"228
+[e :U 364 ]
+[e :U 361 ]
+[e :U 358 ]
+[; ;main.c: 225: }
+[; ;main.c: 228: }
+[e :UE 355 ]
+}
+"238
 [v _demine `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;main.c: 141: bool demine(char x, char y){
+[; ;main.c: 238: bool demine(char x, char y){
 [e :U _demine ]
 [v _x `uc ~T0 @X0 1 r1 ]
 [v _y `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 143: }
-"143
-[e :UE 329 ]
+[; ;main.c: 240: while(PORTBbits.RB1 == 0);
+"240
+[e $U 368  ]
+[e :U 369 ]
+[e :U 368 ]
+[e $ == -> . . _PORTBbits 0 1 `i -> 0 `i 369  ]
+[e :U 370 ]
+[; ;main.c: 242: x--;
+"242
+[e -- _x -> -> 1 `i `uc ]
+[; ;main.c: 243: y--;
+"243
+[e -- _y -> -> 1 `i `uc ]
+[; ;main.c: 245: if(m_tabMines[y][x] == 3){
+"245
+[e $ ! == -> *U + &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _x `ux -> -> # *U &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 3 `i 371  ]
+{
+[; ;main.c: 246: lcd_gotoXY(x+1, y+1);
+"246
+[e ( _lcd_gotoXY (2 , -> + -> _x `i -> 1 `i `uc -> + -> _y `i -> 1 `i `uc ]
+[; ;main.c: 247: return 0;
+"247
+[e ) -> -> 0 `i `uc ]
+[e $UE 367  ]
+"248
 }
-"151
+[e :U 371 ]
+[; ;main.c: 248: }
+[; ;main.c: 249: if(m_tabMines[y][x] == 32){
+"249
+[e $ ! == -> *U + &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _x `ux -> -> # *U &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 32 `i 372  ]
+{
+[; ;main.c: 250: enleveTuilesAutour(x, y);
+"250
+[e ( _enleveTuilesAutour (2 , _x _y ]
+"251
+}
+[; ;main.c: 251: }else if(m_tabMines[y][x] >= 48){
+[e $U 373  ]
+[e :U 372 ]
+[e $ ! >= -> *U + &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _x `ux -> -> # *U &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 48 `i 374  ]
+{
+[; ;main.c: 252: m_tabVue[y][x] = m_tabMines[y][x];
+"252
+[e = *U + &U *U + &U _m_tabVue * -> _y `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _x `ux -> -> # *U &U *U + &U _m_tabVue * -> _y `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux *U + &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _x `ux -> -> # *U &U *U + &U _m_tabMines * -> _y `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux ]
+"253
+}
+[e :U 374 ]
+"254
+[e :U 373 ]
+[; ;main.c: 253: }
+[; ;main.c: 254: afficheTabVue();
+[e ( _afficheTabVue ..  ]
+[; ;main.c: 255: lcd_gotoXY(x+1, y+1);
+"255
+[e ( _lcd_gotoXY (2 , -> + -> _x `i -> 1 `i `uc -> + -> _y `i -> 1 `i `uc ]
+[; ;main.c: 256: return 1;
+"256
+[e ) -> -> 1 `i `uc ]
+[e $UE 367  ]
+[; ;main.c: 257: }
+"257
+[e :UE 367 ]
+}
+"265
 [v _enleveTuilesAutour `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;main.c: 151: void enleveTuilesAutour(char x, char y){
+[; ;main.c: 265: void enleveTuilesAutour(char x, char y){
 [e :U _enleveTuilesAutour ]
 [v _x `uc ~T0 @X0 1 r1 ]
 [v _y `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 153: }
-"153
-[e :UE 330 ]
+"267
+[v _colonne `uc ~T0 @X0 1 a ]
+[; ;main.c: 267: char colonne = 0;
+[e = _colonne -> -> 0 `i `uc ]
+"268
+[v _ligne `uc ~T0 @X0 1 a ]
+[; ;main.c: 268: char ligne = 0;
+[e = _ligne -> -> 0 `i `uc ]
+[; ;main.c: 270: for(int i = -1; i < 2; i++){
+"270
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -U -> 1 `i ]
+[e $ < _i -> 2 `i 376  ]
+[e $U 377  ]
+[e :U 376 ]
+{
+[; ;main.c: 271: for(int j = -1; j < 2; j++){
+"271
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -U -> 1 `i ]
+[e $ < _j -> 2 `i 379  ]
+[e $U 380  ]
+[e :U 379 ]
+{
+[; ;main.c: 272: colonne = x + i;
+"272
+[e = _colonne -> + -> _x `i _i `uc ]
+[; ;main.c: 273: ligne = y + j;
+"273
+[e = _ligne -> + -> _y `i _j `uc ]
+[; ;main.c: 274: m_tabVue[ligne][colonne] = m_tabMines[ligne][colonne];
+"274
+[e = *U + &U *U + &U _m_tabVue * -> _ligne `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _colonne `ux -> -> # *U &U *U + &U _m_tabVue * -> _ligne `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux *U + &U *U + &U _m_tabMines * -> _ligne `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux * -> _colonne `ux -> -> # *U &U *U + &U _m_tabMines * -> _ligne `ux -> * -> # *U &U *U &U _m_tabMines `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux ]
+"275
 }
-"162
+"271
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 2 `i 379  ]
+[e :U 380 ]
+"275
+}
+"276
+}
+"270
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 2 `i 376  ]
+[e :U 377 ]
+"276
+}
+[; ;main.c: 275: }
+[; ;main.c: 276: }
+[; ;main.c: 277: }
+"277
+[e :UE 375 ]
+}
+"286
 [v _gagne `(uc ~T0 @X0 1 ef1`*i ]
 {
-[; ;main.c: 162: bool gagne(int* pMines){
+[; ;main.c: 286: bool gagne(int* pMines){
 [e :U _gagne ]
 [v _pMines `*i ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 164: }
-"164
-[e :UE 331 ]
-}
-"171
-[v _initialisation `(v ~T0 @X0 1 ef ]
-"172
+"287
+[v _ttl `uc ~T0 @X0 1 a ]
+[; ;main.c: 287: char ttl = 0;
+[e = _ttl -> -> 0 `i `uc ]
+[; ;main.c: 288: for(int i = 0; i<4; i++){
+"288
 {
-[; ;main.c: 171: void initialisation(void)
-[; ;main.c: 172: {
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 383  ]
+[e $U 384  ]
+[e :U 383 ]
+{
+[; ;main.c: 289: for(int j = 0; j<20; j++){
+"289
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 20 `i 386  ]
+[e $U 387  ]
+[e :U 386 ]
+{
+[; ;main.c: 290: if(m_tabVue[i][j] == 2){
+"290
+[e $ ! == -> *U + &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _m_tabVue * -> -> _i `ui `ux -> * -> # *U &U *U &U _m_tabVue `ui -> + -> 20 `i -> 1 `i `ui `ux `ui `ux `i -> 2 `i 389  ]
+{
+[; ;main.c: 291: ttl++;
+"291
+[e ++ _ttl -> -> 1 `i `uc ]
+"292
+}
+[e :U 389 ]
+"293
+}
+"289
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 20 `i 386  ]
+[e :U 387 ]
+"293
+}
+"294
+}
+"288
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 383  ]
+[e :U 384 ]
+"294
+}
+[; ;main.c: 292: }
+[; ;main.c: 293: }
+[; ;main.c: 294: }
+[; ;main.c: 295: if(ttl == (*pMines)){
+"295
+[e $ ! == -> _ttl `i *U _pMines 390  ]
+{
+[; ;main.c: 296: return 1;
+"296
+[e ) -> -> 1 `i `uc ]
+[e $UE 382  ]
+"297
+}
+[e :U 390 ]
+[; ;main.c: 297: }
+[; ;main.c: 298: return 0;
+"298
+[e ) -> -> 0 `i `uc ]
+[e $UE 382  ]
+[; ;main.c: 299: }
+"299
+[e :UE 382 ]
+}
+"306
+[v _getAnalog `(uc ~T0 @X0 1 ef1`uc ]
+"307
+{
+[; ;main.c: 306: char getAnalog(char canal)
+[; ;main.c: 307: {
+[e :U _getAnalog ]
+"306
+[v _canal `uc ~T0 @X0 1 r1 ]
+"307
+[f ]
+[; ;main.c: 308: ADCON0bits.CHS = canal;
+"308
+[e = . . _ADCON0bits 1 2 _canal ]
+[; ;main.c: 309: _delay((unsigned long)((1)*(1000000/4000000.0)));
+"309
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 1000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 310: ADCON0bits.GO_DONE = 1;
+"310
+[e = . . _ADCON0bits 5 1 -> -> 1 `i `uc ]
+[; ;main.c: 311: while (ADCON0bits.GO_DONE == 1)
+"311
+[e $U 392  ]
+[e :U 393 ]
+[; ;main.c: 312: ;
+"312
+[e :U 392 ]
+"311
+[e $ == -> . . _ADCON0bits 5 1 `i -> 1 `i 393  ]
+[e :U 394 ]
+[; ;main.c: 313: return ADRESH;
+"313
+[e ) _ADRESH ]
+[e $UE 391  ]
+[; ;main.c: 314: }
+"314
+[e :UE 391 ]
+}
+"321
+[v _initialisation `(v ~T0 @X0 1 ef ]
+"322
+{
+[; ;main.c: 321: void initialisation(void)
+[; ;main.c: 322: {
 [e :U _initialisation ]
 [f ]
-[; ;main.c: 174: TRISD = 0;
-"174
+[; ;main.c: 324: TRISD = 0;
+"324
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;main.c: 176: ANSELH = 0;
-"176
+[; ;main.c: 326: ANSELH = 0;
+"326
 [e = _ANSELH -> -> 0 `i `uc ]
-[; ;main.c: 177: TRISB = 0xFF;
-"177
+[; ;main.c: 327: TRISB = 0xFF;
+"327
 [e = _TRISB -> -> 255 `i `uc ]
-[; ;main.c: 179: ANSEL = 0;
-"179
+[; ;main.c: 329: ANSEL = 0;
+"329
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 180: TRISA = 0;
-"180
+[; ;main.c: 330: TRISA = 0;
+"330
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;main.c: 184: T1CONbits.TMR1ON = 1;
-"184
+[; ;main.c: 334: T1CONbits.TMR1ON = 1;
+"334
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 185: srand(TMR1);
-"185
+[; ;main.c: 335: srand(TMR1);
+"335
 [e ( _srand (1 -> _TMR1 `ui ]
-[; ;main.c: 188: ANSELbits.ANS7 = 1;
-"188
+[; ;main.c: 338: ANSELbits.ANS7 = 1;
+"338
 [e = . . _ANSELbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 190: ADCON0bits.ADON = 1;
-"190
+[; ;main.c: 340: ADCON0bits.ADON = 1;
+"340
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 191: ADCON1 = 0;
-"191
+[; ;main.c: 341: ADCON1 = 0;
+"341
 [e = _ADCON1 -> -> 0 `i `uc ]
-[; ;main.c: 193: ADCON2bits.ADFM = 0;
-"193
+[; ;main.c: 343: ADCON2bits.ADFM = 0;
+"343
 [e = . . _ADCON2bits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 194: ADCON2bits.ACQT = 0;
-"194
+[; ;main.c: 344: ADCON2bits.ACQT = 0;
+"344
 [e = . . _ADCON2bits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 195: ADCON2bits.ADCS = 0;
-"195
+[; ;main.c: 345: ADCON2bits.ADCS = 0;
+"345
 [e = . . _ADCON2bits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 199: }
-"199
-[e :UE 332 ]
+[; ;main.c: 349: }
+"349
+[e :UE 395 ]
 }
