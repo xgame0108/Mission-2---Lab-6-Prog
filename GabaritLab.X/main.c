@@ -53,8 +53,8 @@ char getAnalog(char canal);
 /*               ***** PROGRAMME PRINCPAL *****                             */
 void main(void)
 {
-    char x = 0;
-    char y = 0;
+    char x = 1;
+    char y = 1;
     
     initialisation();
     lcd_init();//initialisation de l'affichage LCD
@@ -71,6 +71,9 @@ void main(void)
     {
         deplace(&x, &y);
         __delay_ms(100);
+        if(PORTBbits.RB1 == 0){
+            demine(x, y);
+        }
     }
 }
 
@@ -192,16 +195,29 @@ void deplace(char* px, char* py){
     
     if(aX < 100){//reste à créer les limites et la "téléportation" d'un coté à l'autre.
         (*px)--;
-        lcd_gotoXY((*px)+1, (*py)+1);
+        if(*px <= 0){
+            *px = NB_COL;
+        }
+        lcd_gotoXY((*px), (*py));
     }else if(aX > 150){
         (*px)++;
-        lcd_gotoXY((*px)+1, (*py)+1);
+        if(*px > NB_COL){
+            *px = 1;
+        }
+        lcd_gotoXY((*px), (*py));
     }else if(aY < 100){
         (*py)++;
-        lcd_gotoXY((*px)+1, (*py)+1);
+        if(*py > NB_LIGNE){
+            *py = 1;
+        }
+        lcd_gotoXY((*px), (*py));
     }else if(aY > 150){
         (*py)--;
-        lcd_gotoXY((*px)+1, (*py)+1);
+        if(*py <= 0){
+            *py = NB_LIGNE;
+            
+        }
+        lcd_gotoXY((*px), (*py));
     }
     
     
@@ -217,6 +233,23 @@ void deplace(char* px, char* py){
  */
 bool demine(char x, char y){
     
+    while(PORTBbits.RB1 == 0);
+    
+    x--;
+    y--;
+    
+    if(m_tabMines[y][x] == MINE){
+        lcd_gotoXY(x+1, y+1);
+        return false;
+    }
+    if(m_tabMines[y][x] == 32){
+        enleveTuilesAutour(x, y);
+    }else if(m_tabMines[y][x] >= 48){
+        m_tabVue[y][x] = m_tabMines[y][x];
+    }
+    afficheTabVue();
+    lcd_gotoXY(x+1, y+1);
+    return true;
 }
  
 /*
@@ -227,6 +260,16 @@ bool demine(char x, char y){
  */
 void enleveTuilesAutour(char x, char y){
     
+    char colonne = 0;
+    char ligne = 0;
+    
+    for(int i = -1; i < 2; i++){
+            for(int j = -1; j < 2; j++){
+                colonne = x + i;
+                ligne = y + j;
+                m_tabVue[ligne][colonne] = m_tabMines[ligne][colonne];
+            }
+        }
 }
  
 /*
@@ -237,7 +280,18 @@ void enleveTuilesAutour(char x, char y){
  * @return vrai si gagné, faux sinon
  */
 bool gagne(int* pMines){
-    
+    char ttl = 0;
+    for(int i = 0; i<NB_LIGNE; i++){//boucle pour les lignes
+        for(int j = 0; j<NB_COL; j++){//boucle pour les colonnes
+            if(m_tabVue[i][j] == TUILE){
+                ttl++;
+            }
+        }
+    }
+    if(ttl == (*pMines)){
+        return true;
+    }
+    return false;
 }
 
 /*

@@ -3042,9 +3042,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 :U ..
 "79
--> -> 14 `i `uc
+-> -> 0 `i `uc
 "80
--> -> 31 `i `uc
+-> -> 14 `i `uc
 "81
 -> -> 31 `i `uc
 "82
@@ -3054,9 +3054,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "84
 -> -> 31 `i `uc
 "85
--> -> 31 `i `uc
-"86
 -> -> 14 `i `uc
+"86
+-> -> 0 `i `uc
 ..
 :U ..
 "88
@@ -3135,14 +3135,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Lcd4Lignes.c: 76: 0b00100,
 [; ;Lcd4Lignes.c: 77: 0b00100},
 [; ;Lcd4Lignes.c: 78: {
-[; ;Lcd4Lignes.c: 79: 0b01110,
-[; ;Lcd4Lignes.c: 80: 0b11111,
+[; ;Lcd4Lignes.c: 79: 0b00000,
+[; ;Lcd4Lignes.c: 80: 0b01110,
 [; ;Lcd4Lignes.c: 81: 0b11111,
 [; ;Lcd4Lignes.c: 82: 0b11111,
 [; ;Lcd4Lignes.c: 83: 0b11111,
 [; ;Lcd4Lignes.c: 84: 0b11111,
-[; ;Lcd4Lignes.c: 85: 0b11111,
-[; ;Lcd4Lignes.c: 86: 0b01110,},
+[; ;Lcd4Lignes.c: 85: 0b01110,
+[; ;Lcd4Lignes.c: 86: 0b00000,},
 [; ;Lcd4Lignes.c: 87: {
 [; ;Lcd4Lignes.c: 88: 0b00000,
 [; ;Lcd4Lignes.c: 89: 0b00000,

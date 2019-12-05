@@ -4965,8 +4965,8 @@ char m_tabMines[4][20+1];
 
 void main(void)
 {
-char x = 0;
-char y = 0;
+char x = 1;
+char y = 1;
 
 initialisation();
 lcd_init();
@@ -4983,6 +4983,9 @@ while(1)
 {
 deplace(&x, &y);
 _delay((unsigned long)((100)*(1000000/4000.0)));
+if(PORTBbits.RB1 == 0){
+demine(x, y);
+}
 }
 }
 
@@ -5002,7 +5005,7 @@ lcd_putMessage(m_tabMines[i]);
 }
 }
 
-# 100
+# 103
 void initTabVue(void){
 for(int i = 0; i<4; i++){
 for(int j = 0; j<20; j++){
@@ -5012,7 +5015,7 @@ m_tabVue[i][20] = '\0';
 }
 }
 
-# 116
+# 119
 void rempliMines(int nb){
 char col = 0;
 char ligne = 0;
@@ -5032,7 +5035,7 @@ m_tabMines[ligne][col] = 3;
 }
 }
 
-# 144
+# 147
 void metToucheCombien(void){
 for(int i = 0; i<20; i++){
 for(int j = 0; j<4; j++){
@@ -5043,7 +5046,7 @@ m_tabMines[j][i] = calculToucheCombien(j, i);
 }
 }
 
-# 159
+# 162
 char calculToucheCombien(int ligne, int colonne){
 int x = 0;
 int y = 0;
@@ -5068,43 +5071,84 @@ return 32;
 return total+48;
 }
 
-# 189
+# 192
 void deplace(char* px, char* py){
 int aX = getAnalog(7);
 int aY = getAnalog(6);
 
 if(aX < 100){
 (*px)--;
-lcd_gotoXY((*px)+1, (*py)+1);
+if(*px <= 0){
+*px = 20;
+}
+lcd_gotoXY((*px), (*py));
 }else if(aX > 150){
 (*px)++;
-lcd_gotoXY((*px)+1, (*py)+1);
+if(*px > 20){
+*px = 1;
+}
+lcd_gotoXY((*px), (*py));
 }else if(aY < 100){
-(*py)--;
-lcd_gotoXY((*px)+1, (*py)+1);
-}else if(aY > 150){
 (*py)++;
-lcd_gotoXY((*px)+1, (*py)+1);
+if(*py > 4){
+*py = 1;
 }
+lcd_gotoXY((*px), (*py));
+}else if(aY > 150){
+(*py)--;
+if(*py <= 0){
+*py = 4;
+
+}
+lcd_gotoXY((*px), (*py));
+}
+
 
 }
 
-# 217
+# 234
 bool demine(char x, char y){
 
+while(PORTBbits.RB1 == 0);
+
+x--;
+y--;
+
+if(m_tabMines[y][x] == 3){
+lcd_gotoXY(x+1, y+1);
+return 0;
+}
+if(m_tabMines[y][x] == 32){
+enleveTuilesAutour(x, y);
+}else if(m_tabMines[y][x] >= 48){
+m_tabVue[y][x] = m_tabMines[y][x];
+}
+afficheTabVue();
+lcd_gotoXY(x+1, y+1);
+return 1;
 }
 
-# 227
+# 261
 void enleveTuilesAutour(char x, char y){
 
+char colonne = 0;
+char ligne = 0;
+
+for(int i = -1; i < 2; i++){
+for(int j = -1; j < 2; j++){
+colonne = x + i;
+ligne = y + j;
+m_tabVue[ligne][colonne] = m_tabMines[ligne][colonne];
+}
+}
 }
 
-# 238
+# 282
 bool gagne(int* pMines){
 
 }
 
-# 247
+# 291
 char getAnalog(char canal)
 {
 ADCON0bits.CHS = canal;
@@ -5115,7 +5159,7 @@ while (ADCON0bits.GO_DONE == 1)
 return ADRESH;
 }
 
-# 262
+# 306
 void initialisation(void)
 {
 
